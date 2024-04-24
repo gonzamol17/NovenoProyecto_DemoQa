@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.ProgressBarPage import ProgressBarPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestProgressBar(BaseClass):
 
     def test_ProgressBar(self):
@@ -29,17 +27,17 @@ class TestProgressBar(BaseClass):
         time.sleep(2)
         smp.collapseElementsItem()
         time.sleep(2)
-        driver.execute_script("window.scrollTo(0, 300)")
+        driver.execute_script("window.scrollTo(0, 350)")
         time.sleep(2)
         smp.expandWidgetsItem()
         time.sleep(2)
-        driver.execute_script("window.scrollTo(0, 400)")
-        time.sleep(2)
         smp.selectProgressBarLink()
+        time.sleep(2)
+        driver.execute_script("window.scrollTo(0, 200)")
         time.sleep(2)
         pbp = ProgressBarPage(driver)
         pbp.selectStartStopButton()
-        time.sleep(7)
+        time.sleep(12)
         result = str(pbp.verifyResetButton())
         assert result == "True"
         assert "rgba(40, 167, 69, 1)" == pbp.checkProgressBarColor()

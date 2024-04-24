@@ -28,10 +28,10 @@ class UploadAndDownloadPage:
         self.driver.find_element(*UploadAndDownloadLocators.btnDownload).click()
 
     def verifyDownloadedFile(self):
-        while not os.path.exists('C:\\Users\\admin\\Downloads'):
+        while not os.path.exists('C:\\Users\\user\\Downloads'):
             time.sleep(3)
         # check file
-        if os.path.isfile('C:\\Users\\admin\\Downloads\\sampleFile.jpeg'):
+        if os.path.isfile('C:\\Users\\user\\Downloads\\sampleFile.jpeg'):
             time.sleep(2)
             print("File download is completed")
         else:

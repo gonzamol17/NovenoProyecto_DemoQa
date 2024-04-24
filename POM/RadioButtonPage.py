@@ -9,7 +9,7 @@ from selenium.webdriver.support.select import Select
 class RadioButtonLocators:
     allRadioButton = (By.XPATH, "//input[@type='radio']")
     yesRadiobutton = (By.XPATH, "//label[contains(text(),'Yes')]")
-    message = (By.CSS_SELECTOR, "#app div:nth-child(2)>p")
+    message = (By.CSS_SELECTOR, "#app div:nth-child(3)>p")
     impressiveRadioButton = (By.XPATH, "//label[contains(text(),'Impressive')]")
 
 

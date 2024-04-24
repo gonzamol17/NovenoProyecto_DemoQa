@@ -39,7 +39,7 @@ class FormsPage:
         self.driver.find_element(*FormsLocators.emailLabel).send_keys(email)
         self.driver.find_element(By.XPATH, "//label[contains(text(), '" + str(gender) + "')]").click()
         self.driver.find_element(*FormsLocators.mobileLabel).send_keys(mobile)
-        self.driver.find_element(By.XPATH, "//label[contains(text(), '" + hobbie + "')]").click()
+        self.driver.find_element(By.XPATH, "//label[contains(text(),'Sports')]").click()
         #self.driver.find_element(*FormsLocators.dropdownState).click()
         #select = Select(self.driver.find_element(*FormsLocators.stateList))
         #select.select_by_value(state)

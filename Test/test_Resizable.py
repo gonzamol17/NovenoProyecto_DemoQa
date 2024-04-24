@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.ResizablePage import ResizablePage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestResizable(BaseClass):
 
     def test_Resizable(self):
@@ -43,7 +41,7 @@ class TestResizable(BaseClass):
         time.sleep(2)
         print(rp.getRestrictionFirstBox())
         time.sleep(2)
-        #driver.execute_script("window.scrollTo(0, 200)")
+        driver.execute_script("window.scrollTo(0, 700)")
         time.sleep(1)
         rp.setSizeSecondBox()
         time.sleep(2)

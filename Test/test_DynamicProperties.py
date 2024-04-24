@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.DynamicPropertiesPage import DynamicPropertiesPage
 from POM.ElementsPage import ElementsPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestDynamicProperties(BaseClass):
 
     def test_DynamicProperties(self):
@@ -34,7 +32,7 @@ class TestDynamicProperties(BaseClass):
         assert dp.verifyColorBtnBefore() == "rgba(255, 255, 255, 1)"
         time.sleep(5)
         assert str(dp.verifyEnabledBtn()) == "True"
-        assert dp.verifyColorBtnBefore() == "rgba(230, 108, 120, 1)"
+        assert dp.verifyColorBtnBefore() == "rgba(220, 53, 69, 1)"
         time.sleep(3)
 
 

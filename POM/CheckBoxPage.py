@@ -7,7 +7,7 @@ from selenium.webdriver.support.select import Select
 
 
 class CheckBoxLocators:
-    mainTitle = (By.CSS_SELECTOR, "#app div.playgound-header>div")
+    mainTitle = (By.XPATH, "//h1[contains(text(),'Check Box')]")
     homeChevron = (By.CSS_SELECTOR, "svg.rct-icon.rct-icon-expand-close")
     allChildChevron = (By.CSS_SELECTOR, "#tree-node li>ol span.rct-title")
     downloadChevron = (By.CSS_SELECTOR, "#tree-node li:nth-child(3) button>svg")

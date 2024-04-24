@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,14 +13,13 @@ from POM.SubMenuPage import SubMenuPage
 from POM.AlertsPage import AlertsPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestAlerts(BaseClass):
 
     def test_Alerts(self):
         log = self.get_Logger()
         driver = self.driver
         hp = HomePage(driver)
-        driver.execute_script("window.scrollTo(0, 300)")
+        driver.execute_script("window.scrollTo(0, 200)")
         time.sleep(2)
         hp.clickElementsButton()
         time.sleep(2)
@@ -32,6 +30,7 @@ class TestAlerts(BaseClass):
         driver.execute_script("window.scrollTo(0, 300)")
         smp.expandAlertsFrameItem()
         smp.selectAlertsLink()
+        driver.execute_script("window.scrollTo(0, 300)")
         time.sleep(2)
         ap = AlertsPage(driver)
         ap.selectSimpleAlertBtn()
@@ -47,12 +46,13 @@ class TestAlerts(BaseClass):
         ap.handleConfirmAlert()
         print(ap.getConfirmAlertMsg())
         time.sleep(2)
-        ap.selectPromtAlertBtn()
+        driver.execute_script("window.scrollTo(0, 200)")
         time.sleep(2)
+        ap.selectPromtAlertBtn()
         name = "Gonzalo"
         ap.handlePromtAlert(name)
         time.sleep(2)
-        #print(ap.getConfirmPromtAlertMsg())
+        print(ap.getConfirmPromtAlertMsg())
         assert "You entered "+name == ap.getConfirmPromtAlertMsg()
         time.sleep(2)
 

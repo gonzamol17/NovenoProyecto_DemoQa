@@ -14,7 +14,7 @@ class SubMenuLocators:
     alertsLink = (By.XPATH, "//span[contains(text(), 'Alerts')]")
     framesLink = (By.XPATH, "//span[contains(text(), 'Frames')]")
     modalDialogsLink = (By.XPATH, "//span[contains(text(), 'Modal Dialogs')]")
-    widgetsItem = (By.CSS_SELECTOR, "#app > div > div > div.row > div:nth-child(1) > div > div > div:nth-child(4) > span > div > div.header-right")
+    widgetsItem = (By.CSS_SELECTOR, "#app div:nth-child(1) > div:nth-child(4) > span > div > div.header-right")
     accordianLink = (By.XPATH, "//span[contains(text(), 'Accordian')]")
     autocompleteLink = (By.XPATH, "//span[contains(text(), 'Auto Complete')]")
     datePickerLink = (By.XPATH, "//span[contains(text(), 'Date Picker')]")

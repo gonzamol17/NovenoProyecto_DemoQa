@@ -12,7 +12,7 @@ class AlertFrameLocators:
     newWindowBtn = (By.ID, "windowButton")
     newWindowMsgBtn = (By.ID, "messageWindowButton")
     titleNewPage = (By.CSS_SELECTOR, "#sampleHeading")
-    titlePage = (By.CSS_SELECTOR, "#app div.pattern-backgound.playgound-header>div")
+    titlePage = (By.CSS_SELECTOR, "#browserWindows > h1")
 
 
 class AlertFramePage:

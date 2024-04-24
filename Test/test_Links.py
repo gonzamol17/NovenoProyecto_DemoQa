@@ -9,7 +9,6 @@ import softest
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -17,7 +16,6 @@ from POM.LinksPage import LinksPage
 from POM.ElementsPage import ElementsPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestLinks(BaseClass, softest.TestCase):
 
     def test_Links(self):
@@ -49,6 +47,8 @@ class TestLinks(BaseClass, softest.TestCase):
         #self.soft_assert(self.assertIn, "https://demoqa.com/", urls)
         self.assertIn("https://demoqa.com/", urls)
         self.assertIn("https://demoqa.com/links", urls)
+        driver.execute_script("window.scrollTo(0, 400)")
+        time.sleep(2)
         message = lp.verifyBrokenLink()
         assert "401" in message
         time.sleep(3)

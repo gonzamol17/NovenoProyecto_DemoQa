@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.DatePickerPage import DatePickerPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestDatePicker(BaseClass):
 
     def test_DatePicker(self):

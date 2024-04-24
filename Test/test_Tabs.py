@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.TabsPage import TabsPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestTabs(BaseClass):
 
     def test_Tabs(self):
@@ -36,6 +34,8 @@ class TestTabs(BaseClass):
         driver.execute_script("window.scrollTo(0, 500)")
         time.sleep(2)
         smp.selectTabsLink()
+        time.sleep(2)
+        driver.execute_script("window.scrollTo(0, 300)")
         time.sleep(2)
         tp = TabsPage(driver)
         whattab = tp.getWhatStatusTabsSelected()

@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.LoginPage import LoginPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestLogin(BaseClass):
 
     def test_Login(self):
@@ -29,7 +27,7 @@ class TestLogin(BaseClass):
         driver.execute_script("window.scrollTo(0, 500)")
         time.sleep(2)
         smp.selectLoginLink()
-        driver.execute_script("window.scrollTo(0, 200)")
+        driver.execute_script("window.scrollTo(0, 400)")
         time.sleep(2)
         lp = LoginPage(driver)
         user = "pepe1"

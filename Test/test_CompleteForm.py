@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.FormsPage import FormsPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestCompleteForm(BaseClass):
 
     def test_CompleteForm(self):
@@ -31,11 +29,11 @@ class TestCompleteForm(BaseClass):
         time.sleep(2)
         smp.expandFormsItem()
         time.sleep(2)
-        driver.execute_script("window.scrollTo(0, 100)")
+        driver.execute_script("window.scrollTo(0, 200)")
         fp = FormsPage(driver)
         time.sleep(2)
         fp.clickPracticeFormItem()
-        driver.execute_script("window.scrollTo(0, 200)")
+        driver.execute_script("window.scrollTo(0,500)")
         time.sleep(2)
         fp.completeForm("Pedro", "Lopez", "pedro@gmail.com", "Male", "23234243", "Reading")
         time.sleep(2)

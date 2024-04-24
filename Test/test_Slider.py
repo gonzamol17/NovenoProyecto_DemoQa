@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.SliderPage import SliderPage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestSlider(BaseClass):
 
     def test_Slider(self):
@@ -36,6 +34,7 @@ class TestSlider(BaseClass):
         driver.execute_script("window.scrollTo(0, 400)")
         time.sleep(2)
         smp.selectSliderLink()
+        driver.execute_script("window.scrollTo(0, 400)")
         time.sleep(2)
         sp = SliderPage(driver)
         sp.moveSlider(125)

@@ -6,7 +6,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
 from Utils.BaseClass import BaseClass
 from POM.HomePage import HomePage
@@ -14,7 +13,6 @@ from POM.SubMenuPage import SubMenuPage
 from POM.DroppablePage import DroppablePage
 
 
-@pytest.mark.usefixtures("test_setup")
 class TestDroppable(BaseClass):
 
     def test_Droppable(self):
@@ -39,10 +37,10 @@ class TestDroppable(BaseClass):
         time.sleep(2)
         dp = DroppablePage(driver)
         assert dp.getTitleBeforeDroppableAction() == "Drop here"
-        time.sleep(1)
-        dp.dragAndDrop()
-        driver.execute_script("window.scrollTo(0, 200)")
+        driver.execute_script("window.scrollTo(0, 550)")
         time.sleep(3)
+        dp.dragAndDrop()
+        time.sleep(2)
         assert dp.getTitleAfterDroppableAction() == "Dropped!"
         assert dp.getColorAfterDroppableAction() == "rgba(70, 130, 180, 1)"
         print("\nAhora se está visualizando en color azul el box, y además se visualiza el título: "+dp.getTitleAfterDroppableAction())
