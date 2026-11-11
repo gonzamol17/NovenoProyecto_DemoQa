@@ -7,14 +7,14 @@ from selenium.webdriver.support.select import Select
 
 
 class SubMenuLocators:
-    elementsItem = (By.CSS_SELECTOR, "#app div:nth-child(1)>div:nth-child(1) div.header-right")
+    elementsItem = (By.CSS_SELECTOR, "body div:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
     formsItem = (By.CSS_SELECTOR, "#app div:nth-child(1)>div:nth-child(2)>span div.header-right")
     alertsFrame = (By.CSS_SELECTOR, "#app div:nth-child(1)>div:nth-child(3)>span div.header-right")
     browserWindowLink = (By.XPATH, "//span[contains(text(),'Browser Windows')]")
     alertsLink = (By.XPATH, "//span[contains(text(), 'Alerts')]")
     framesLink = (By.XPATH, "//span[contains(text(), 'Frames')]")
     modalDialogsLink = (By.XPATH, "//span[contains(text(), 'Modal Dialogs')]")
-    widgetsItem = (By.CSS_SELECTOR, "#app div:nth-child(1) > div:nth-child(4) > span > div > div.header-right")
+    widgetsItem = (By.CSS_SELECTOR, "body div:nth-child(1) > div:nth-child(4) > span:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
     accordianLink = (By.XPATH, "//span[contains(text(), 'Accordian')]")
     autocompleteLink = (By.XPATH, "//span[contains(text(), 'Auto Complete')]")
     datePickerLink = (By.XPATH, "//span[contains(text(), 'Date Picker')]")

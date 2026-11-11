@@ -8,7 +8,7 @@ from selenium.webdriver.support.select import Select
 
 class WebTablesLocators:
     searchBox = (By.ID, "searchBox")
-    resultNoRows = (By.CSS_SELECTOR, "#app div.-striped.-highlight>div.rt-noData")
+    resultNoRows = (By.CSS_SELECTOR, "div[class='col-auto'] strong")
     addButton = (By.ID, "addNewRecordButton")
     firstnameLabel = (By.ID, "firstName")
     lastnameLabel = (By.ID, "lastName")
@@ -17,8 +17,10 @@ class WebTablesLocators:
     salaryLabel = (By.ID, "salary")
     departmentLabel = (By.ID, "department")
     submitButton = (By.ID, "submit")
-    allEmployee = (By.CSS_SELECTOR, "div.body-height div.rt-td:nth-child(1)")
+    allEmployee = (By.CSS_SELECTOR, "#root div.container-fluid table > tbody")
+    allFirstNames = (By.CSS_SELECTOR, "table > tbody > tr> td:nth-child(1)")
     glassIcon = (By.ID, "basic-addon2")
+    prueba = (By.CSS_SELECTOR, "#root div.container-fluid table > tbody > tr")
 
 
 class WebTablesPage:
@@ -61,7 +63,7 @@ class WebTablesPage:
         return employeesList
 
     def editUserFromTable(self, name):
-        employees = self.driver.find_elements(*WebTablesLocators.allEmployee)
+        employees = self.driver.find_elements(*WebTablesLocators.allFirstNames)
         n = 1
         for employee in employees:
             if employee.text != " " and employee.text == name:
@@ -79,11 +81,14 @@ class WebTablesPage:
         self.driver.find_element(*WebTablesLocators.submitButton).click()
 
     def verifyTheAgeWasUpdated(self, name):
-        employees = self.driver.find_elements(*WebTablesLocators.allEmployee)
+        employees = self.driver.find_elements(*WebTablesLocators.allFirstNames)
         n = 1
-        for employee in employees:
-            if employee.text != " " and employee.text == name:
-                return self.driver.find_element(By.CSS_SELECTOR, "div.rt-tbody>div:nth-child(" + str(n) + ")>div>div:nth-child(3)").text
 
+        for employee in employees:
+            if employee.text == name:
+                return self.driver.find_element(
+                    By.CSS_SELECTOR,
+                    "table > tbody > tr:nth-child(" + str(n) + ") > td:nth-child(3)"
+                ).text
             else:
                 n = n + 1

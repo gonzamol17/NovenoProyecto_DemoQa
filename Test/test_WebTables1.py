@@ -33,7 +33,7 @@ class TestWebTables1(BaseClass):
         name = "Alina"
         wtp.makeASearch(name)
         time.sleep(2)
-        assert wtp.getZeroResult() == "No rows found"
+        assert wtp.getZeroResult() == "1 of 0"
         time.sleep(2)
         wtp.selectAddButton()
         time.sleep(2)
@@ -42,8 +42,8 @@ class TestWebTables1(BaseClass):
         employees = wtp.getAllEmployees()
         for i in employees:
             print(i)
-            if i == name:
-                assert name == i
+            if name in i:
+                assert name in i
                 print("Se encontró en la lista, el usuario/a recientemente agregado/a, y es: "+name)
         time.sleep(3)
 

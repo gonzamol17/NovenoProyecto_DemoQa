@@ -3,9 +3,7 @@ import pytest
 import unittest
 import sys
 import os
-
 import softest
-
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style

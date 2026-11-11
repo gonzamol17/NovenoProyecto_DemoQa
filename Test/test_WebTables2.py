@@ -34,6 +34,7 @@ class TestWebTables2(BaseClass):
         wtp.editUserFromTable(name)
         age = 28
         wtp.updateAgeField(age)
+        time.sleep(2)
         updatedage = wtp.verifyTheAgeWasUpdated(name)
         assert updatedage == str(age)
         print("El usuario: "+name+" se ha actualizado correctamente su edad, ahora tiene: "+updatedage)

@@ -12,7 +12,7 @@ from POM.HomePage import HomePage
 from POM.SubMenuPage import SubMenuPage
 from POM.ToolTipsPage import ToolTipsPage
 
-
+@pytest.mark.report
 class TestToolTips(BaseClass):
 
     def test_ToolTips(self):
@@ -24,6 +24,8 @@ class TestToolTips(BaseClass):
         hp.clickElementsButton()
         time.sleep(2)
         smp = SubMenuPage(driver)
+        time.sleep(2)
+        driver.execute_script("window.scrollTo(0, -300)")
         time.sleep(2)
         smp.collapseElementsItem()
         time.sleep(2)
